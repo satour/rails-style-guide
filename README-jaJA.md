@@ -784,7 +784,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 
 * [rmagick](http://rmagick.rubyforge.org/)
   * この gem は莫大なメモリ量を消費してしまいます。代わりに
-  [minimagick](https://github.com/probablycorey/mini_magick) を使いましょう。
+  [minimagick](https://github.com/minimagick/minimagick) を使いましょう。
 
 * [autotest](http://www.zenspider.com/ZSS/Products/ZenTest/)
   * [guard](https://github.com/guard/guard) や
