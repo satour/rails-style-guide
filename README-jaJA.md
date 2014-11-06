@@ -224,7 +224,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
     default_scope { where(active: true) }
 
     # 定数を記述する。
-    GENDERS = %w(male female)
+    COLORS = %w(red green blue)
 
     # attr関連のマクロを記述する。
     attr_accessor :formatted_date_of_birth
