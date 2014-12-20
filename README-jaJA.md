@@ -13,10 +13,10 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 以下の言語の翻訳が利用可能です:
 
 * [中国語(簡体)](https://github.com/JuanitoFatas/rails-style-guide/blob/master/README-zhCN.md)
-*  [中国語(繁体)](https://github.com/JuanitoFatas/rails-style-guide/blob/master/README-zhTW.md)
+* [中国語(繁体)](https://github.com/JuanitoFatas/rails-style-guide/blob/master/README-zhTW.md)
+* [日本語](hhttps://github.com/satour/rails-style-guide/blob/master/README-jaJA.md)
 * [ロシア語](https://github.com/arbox/rails-style-guide/blob/master/README-ruRU.md)
 * [トルコ語](https://github.com/tolgaavci/rails-style-guide/blob/master/README-trTR.md)
-* [日本語](hhttps://github.com/satour/rails-style-guide/blob/master/README-jaJA.md)
 
 # The Rails Style Guide
 
