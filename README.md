@@ -489,7 +489,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
   多くのRails開発者が、初期値の設定をRailsのアプリケーション層だけで行っています。しかし、そのやり方はデータの不整合やアプリケーションのバグを引き起こす可能性が高いです。また、重要なアプリケーションは、データベースを他のアプリケーションと共有している場合が多く、単体のRailsアプリケーションでデータ保全性を担保するのは不可能です。
 
 * <a name="foreign-key-constraints"></a>
-  外部キー制約を設定しましょう。ActiveRecord は外部キー制約の機能を提供していない為、外部キー制約の設定には
+  外部キー制約を設定しましょう。Railは4.2から外部キー制約をサポートしています。それ以前のバージョンでは外部キー制約の機能を提供していない為、
   [schema_plus](https://github.com/lomba/schema_plus) や
   [foreigner](https://github.com/matthuhiggins/foreigner) のような偉大な gem を利用しましょう。
 <sup>[[link](#foreign-key-constraints)]</sup>
