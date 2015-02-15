@@ -523,7 +523,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 ## Views
 
 * <a name="no-direct-model-view"></a>
-  モデル層から直接、viewを呼び出さないようにしましょう。
+  viewから直接、モデル層を呼び出さないようにしましょう。
 <sup>[[link](#no-direct-model-view)]</sup>
 
 * <a name="no-complex-view-formatting"></a>
