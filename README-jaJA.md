@@ -735,7 +735,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 <sup>[[link](#inline-email-styles)]</sup>
 
 * <a name="background-email"></a>
-  ページ描画と email の送信を同時に行うのはやめましょう。ページ描画の遅延によって、email 送信リクエストがタイムアウトになり、email が送信されない場合があす。[sidekiq](https://github.com/mperham/sidekiq) のような gem を利用し、email をバックグラウンドのプロセスで送信することでこの問題を回避できます。
+  ページ描画と email の送信を同時に行うのはやめましょう。email が複数送信されると、ページのロードが遅延してリクエストがタイムアウトになる可能性があります。[sidekiq](https://github.com/mperham/sidekiq) のような gem を利用し、email をバックグラウンドのプロセスで送信することでこの問題を回避できます。
 <sup>[[link](#background-email)]</sup>
 
 ## Bundler
