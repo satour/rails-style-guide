@@ -28,6 +28,8 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 * [Routing](#routing)
 * [Controllers](#controllers)
 * [Models](#models)
+  * [ActiveRecord](#activerecord)
+  * [ActiveRecord Queries](#activerecord-queries)
 * [Migrations](#migrations)
 * [Views](#views)
 * [Internationalization](#internationalization)
@@ -464,6 +466,94 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
   end
   ```
 
+### ActiveRecord Queries
+
+* <a name="avoid-interpolation"></a>
+  SQLインジェクション攻撃を防ぐため、
+クエリの文字列の中で式を展開するのはやめましょう。
+<sup>[[link](#avoid-interpolation)]</sup>
+
+  ```Ruby
+  # bad - paramがエスケープされず、SQLインジェクションの可能性が残る。
+  Client.where("orders_count = #{params[:orders]}")
+
+  # good - paramがエスケープされる
+  Client.where('orders_count = ?', params[:orders])
+  ```
+
+* <a name="named-placeholder"></a>
+  クエリのなかで2つ以上のプレースホルダを使う場合は、
+名前付きプレースホルダを利用しましょう。
+<sup>[[link](#named-placeholder)]</sup>
+
+  ```Ruby
+  # okish
+  Client.where(
+    'created_at >= ? AND created_at <= ?',
+    params[:start_date], params[:end_date]
+  )
+
+  # good
+  Client.where(
+    'created_at >= :start_date AND created_at <= :end_date',
+    start_date: params[:start_date], end_date: params[:end_date]
+  )
+  ```
+
+* <a name="find"></a>
+idを指定してひとつのレコードを取得する場合は、`where`より`find`を使いましょう。
+<sup>[[link](#find)]</sup>
+
+  ```Ruby
+  # bad
+  User.where(id: id).take
+
+  # good
+  User.find(id)
+  ```
+
+* <a name="find_by"></a>
+複数の属性を指定してひとつのレコードを取得する場合は、`where`より`find_by`を使いましょう。
+
+<sup>[[link](#find_by)]</sup>
+
+  ```Ruby
+  # bad
+  User.where(first_name: 'Bruce', last_name: 'Wayne').first
+
+  # good
+  User.find_by(first_name: 'Bruce', last_name: 'Wayne'))
+  ```
+
+* <a name="find_each"></a>
+  大量のレコードを処理しなければいけない場合は、`find_each`を使いましょう。
+<sup>[[link](#find_each)]</sup>
+
+  ```Ruby
+  # bad - すべてのレコードを一度に読み込む
+  # users テーブルに数千行のレコードがあった場合、
+この書き方では非常に非効率になる。
+  User.all.each do |user|
+    NewsMailer.weekly(user).deliver_now
+  end
+
+  # good - バッチのなかでレコードが読み込まれる
+  User.find_each do |user|
+    NewsMailer.weekly(user).deliver_now
+  end
+  ```
+
+* <a name="where-not"></a>
+  SQLのようにクエリを記述する場合、`where.not`を使った方がよいケースがあります。
+<sup>[[link](#where-not)]</sup>
+
+  ```Ruby
+  # bad
+  User.where("id != ?", id)
+
+  # good
+  User.where.not(id: id)
+  ```
 
 ## Migrations
 
