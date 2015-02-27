@@ -35,6 +35,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 * [Internationalization](#internationalization)
 * [Assets](#assets)
 * [Mailers](#mailers)
+* [Time](#time)
 * [Bundler](#bundler)
 * [Flawed Gems](#flawed-gems)
 * [Managing processes](#managing-processes)
@@ -827,6 +828,45 @@ idを指定してひとつのレコードを取得する場合は、`where`よ�
 * <a name="background-email"></a>
   ページ描画と email の送信を同時に行うのはやめましょう。ページ描画の遅延によって、email 送信リクエストがタイムアウトになり、email が送信されない場合があす。[sidekiq](https://github.com/mperham/sidekiq) のような gem を利用し、email をバックグラウンドのプロセスで送信することでこの問題を回避できます。
 <sup>[[link](#background-email)]</sup>
+
+
+## Time
+
+* <a name="tz-config"></a>
+  `application.rb` でtimezoneを適切に設定しましょう。
+<sup>[[link](#time-now)]</sup>
+
+  ```Ruby
+  config.time_zone = 'Eastern European Time'
+  # optional - :utc か :local しか指定できません(デフォルトは:utcです)
+  config.active_record.default_timezone = :local
+  ```
+
+* <a name="time-parse"></a>
+  `Time.parse`は使わないようにしましょう。
+<sup>[[link](#time-parse)]</sup>
+
+  ```Ruby
+  # bad
+  Time.parse('2015-03-02 19:05:37') # => システムのtimezoneを反映した時刻が返されます。
+
+  # good
+  Time.zone.parse('2015-03-02 19:05:37') # => Mon, 02 Mar 2015 19:05:37 EET +02:00
+  ```
+
+* <a name="time-now"></a>
+  `Time.now`は使わないようにしましょう。
+<sup>[[link](#time-now)]</sup>
+
+  ```Ruby
+  # bad
+  Time.now # => システム日付を返します。その際、timezoneの設定は無視されます。
+
+  # good
+  Time.zone.now # => Fri, 12 Mar 2014 22:04:47 EET +02:00
+  Time.current # 上記と同じ処理で、より短い記法です。
+  ```
+
 
 ## Bundler
 
