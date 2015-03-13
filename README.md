@@ -614,7 +614,7 @@ idを指定してひとつのレコードを取得する場合は、`where`よ�
 ## Views
 
 * <a name="no-direct-model-view"></a>
-  モデル層から直接、viewを呼び出さないようにしましょう。
+  viewから直接、モデル層を呼び出さないようにしましょう。
 <sup>[[link](#no-direct-model-view)]</sup>
 
 * <a name="no-complex-view-formatting"></a>
