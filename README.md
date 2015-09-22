@@ -357,8 +357,9 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 * <a name="app-validators"></a>
   独自のヴァリデーション・ファイルは`app/validators`を作成し、その配下に配置しましょう。
 <sup>[[link](#app-validators)]</sup>
-* <a name="custom-validators-gem"></a>
-* 独自のヴァリデーションを使って複数のアプリケーションをメンテナンスしている場合、もしくはそのヴァリデーションが汎用的な内容である場合、gem 化することを検討しましょう。
+
+* <a name="custom-validators-gem"></a> 
+  独自のヴァリデーションを使って複数のアプリケーションをメンテナンスしている場合、もしくはそのヴァリデーションが汎用的な内容である場合、gem 化することを検討しましょう。
 <sup>[[link](#custom-validators-gem)]</sup>
 
 * <a name="named-scopes"></a>
@@ -608,7 +609,7 @@ idを指定してひとつのレコードを取得する場合は、`where`よ�
   ```
 
 * <a name="no-model-class-migrations"></a>
-* migration でモデルを利用してはいけません。モデルの内容は更新されていくものであり、migration でモデルを引用していた場合、migrationの実行時に不具合を起こす可能性が高いです。
+  migration でモデルを利用してはいけません。モデルの内容は更新されていくものであり、migration でモデルを引用していた場合、migrationの実行時に不具合を起こす可能性が高いです。
 <sup>[[link](#no-model-class-migrations)]</sup>
 
 ## Views
