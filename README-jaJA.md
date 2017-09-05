@@ -471,8 +471,7 @@ PDF形式やHTML形式のコピーは[Transmuter](https://github.com/TechnoGate/
 ### ActiveRecord Queries
 
 * <a name="avoid-interpolation"></a>
-  SQLインジェクション攻撃を防ぐため、
-クエリの文字列の中で式を展開するのはやめましょう。
+SQLインジェクション攻撃を防ぐため、クエリの文字列の中で式を展開するのはやめましょう。
 <sup>[[link](#avoid-interpolation)]</sup>
 
   ```Ruby
@@ -533,8 +532,8 @@ idを指定してひとつのレコードを取得する場合は、`where`よ�
 
   ```Ruby
   # bad - すべてのレコードを一度に読み込む
-  # users テーブルに数千行のレコードがあった場合、
-この書き方では非常に非効率になる。
+  usersテーブルに数千行のレコードがあった場合、この書き方では非常に非効率になる。
+  
   User.all.each do |user|
     NewsMailer.weekly(user).deliver_now
   end
