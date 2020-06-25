@@ -739,7 +739,7 @@ idを指定してひとつのレコードを取得する場合は、`where`よ�
 <sup>[[link](#html-plain-email)]</sup>
 
 * <a name="enable-delivery-errors"></a>
-  delelopment 環境では、メールの送信に失敗したらエラーが発生するように設定しておきましょう。デフォルトでは、develepment環境でのメール送信失敗はエラーとならないように設定されています。
+  development 環境では、メールの送信に失敗したらエラーが発生するように設定しておきましょう。デフォルトでは、development環境でのメール送信失敗はエラーとならないように設定されています。
 <sup>[[link](#enable-delivery-errors)]</sup>
 
   ```Ruby
